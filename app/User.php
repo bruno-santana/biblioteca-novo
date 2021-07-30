@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'document','date_of_birth', 'email', 'avatar', 'genre', 'phone', 'password', 
     ];
 
     /**
@@ -36,4 +36,48 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setDateOfBirthAttribute($value)
+    {
+        $this->attributes['date_of_birth'] = $this->convertStringToDate($value);
+    }
+
+    public function getDateOfBirthAttribute($value)
+    {
+        return date('d/m/Y', strtotime($value));
+    }
+
+    public function setDocumentAttribute($value)
+    {
+        $this->attributes['document'] = $this->clearField($value);
+    }
+
+    public function getDocumentAttribute($value)
+    {
+        return substr($value, 0, 3) . '.' . substr($value, 3, 3) . '.' . substr($value, 6, 3) . '-' . substr($value, 9, 2);
+    }
+
+    public function setPhoneAttribute($value)
+    {
+        $this->attributes['phone'] = $this->clearField($value);
+    }
+
+    private function convertStringToDate(?string $param)
+    {
+        if(empty($param)){
+            return null;
+        }
+
+        list($day, $month, $year) = explode('/', $param);
+        return (new \DateTime($year . '-' . $month . '-' . $day))->format('Y-m-d');
+    }
+
+    private function clearField(?string $param)
+    {
+        if(empty($param)){
+            return '';
+        }
+
+        return str_replace(['.', '-', '/', '(', ')', ' '], '', $param);
+    }
 }
