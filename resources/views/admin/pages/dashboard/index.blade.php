@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="panel shadow">
+        <div class="panel shadow" style="padding:12px">
             <div class="header">
                 <h3 class="title"><i class="fas fa-chart-bar" aria-hidden="true"></i> Estatíticas</h3>
             </div>
@@ -27,7 +27,7 @@
                     <div class="col-md-3">
                         <div class="panel shadow">
                             <div class="header">
-                                <h3 class="title"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Maçons</h3>
+                                <h3 class="title"><i class="fas fa-address-book" aria-hidden="true"></i> Irmãos</h3>
                             </div>
                             <div class="inside">
                                 <div class="big_count">{{ $totalStudants }}</div>
@@ -55,7 +55,7 @@
                 <div class="col-md-3">
                     <div class="panel shadow">
                         <div class="header">
-                            <h3 class="title"><i class="fas fa-book-reader" aria-hidden="true"></i> Livros Emprestados</h3>
+                            <h3 class="title"><i class="fas fa-book-reader" aria-hidden="true"></i> Empréstimos</h3>
                         </div>
                         <div class="inside">
                             <div class="big_count">{{ $totalBorroweds }}</div>

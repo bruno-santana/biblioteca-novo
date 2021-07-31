@@ -8,9 +8,8 @@ class Studant extends Model
 {
     protected $fillable =[
         'name',
-        'genre',
+        'registration',
         'date_of_birth',
-        'document',
         'zipcode',
         'street',
         'number',
@@ -32,7 +31,7 @@ class Studant extends Model
 
     public function setDocumentAttribute($value)
     {
-        $this->attributes['document'] = $this->clearField($value);
+        $this->attributes['registration'] = $this->clearField($value);
     }
 
     public function getDocumentAttribute($value)

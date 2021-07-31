@@ -90,7 +90,7 @@
             </div>
 
             <div class="row mtop16">
-                <div class="col-md-12">
+                <div class="col-md-12" style="margin-left: 16px">
                 {!! Form::submit('Cadastar', [ 'class' => 'btn btn-success']) !!}
                 </div>
             </div>

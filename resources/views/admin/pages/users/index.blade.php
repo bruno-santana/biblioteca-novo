@@ -19,7 +19,7 @@
                 @include('admin.includes.alerts')
             </div>
 
-            <div class="btns">
+            <div class="btns" style="margin-left: 16px">
                 <a href="{{ route('users.create')}}" class="btn btn-primary">
                      <i class="fa fa-plus"></i> Novo
                  </a>

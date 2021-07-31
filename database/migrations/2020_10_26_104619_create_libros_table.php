@@ -17,7 +17,8 @@ class CreateLibrosTable extends Migration
             $table->id();
             $table->string('code')->default('0');
             $table->string('name');
-            $table->string('slug');
+            $table->string('isbn');
+            $table->string('localization');
             $table->integer('category_id');
             $table->string('image');
             $table->text('description');

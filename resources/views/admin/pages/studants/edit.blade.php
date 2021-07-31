@@ -24,7 +24,7 @@
 
             {!! Form::open(['url' => '/admin/studants/'.$studant->id.'/edit' ]) !!}
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <label for="name">Nome:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -35,18 +35,6 @@
                         {!! Form::text('name', $studant->name,  [ 'class' => 'form-control']) !!}
                     </div>   
                 </div>
-
-                <div class="col-md-3">
-                    <label for="genre">Gênero:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fas fa-restroom" aria-hidden="true"></i> 
-                            </span>
-                        </div>
-                        {!! Form::text('genre',$studant->genre, ['class' => 'form-control']) !!}
-                    </div>   
-                 </div>
 
                 <div class="col-md-3">
                     <label for="date_of_birth">Data de nascimento:</label>
@@ -60,14 +48,14 @@
                     </div>   
                 </div>
                 <div class="col-md-3">
-                    <label for="document">Documento:</label>
+                    <label for="document">Matrícula:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basuc-addon1">
                                 <i class="fas fa-passport"></i>
                             </span>
                         </div>
-                        {!! Form::text('document', $studant->document, [ 'class' => 'form-control','disabled']) !!}
+                        {!! Form::text('registration', $studant->registration, [ 'class' => 'form-control','disabled']) !!}
                     </div>   
                 </div>
                 <div class="col-md-3 mtop16">

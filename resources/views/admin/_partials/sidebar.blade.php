@@ -27,12 +27,12 @@
             
             <li>
                 <a href="{{route('studants.index')}}" class="lk-studants.index lk-studants.create lk-studants.edit lk-studants.show lk-studants.destroy ">
-                    <i class="fas fa-graduation-cap"></i>Alunos</a>
+                    <i class="fas fa-address-book"></i>Irmãos</a>
             </li>
             
             <li>
                 <a href="{{route('borroweds.index')}}" class="lk-borroweds.index lk-borroweds.edit lk-borroweds.destroy ">
-                    <i class="fas fa-book-reader"></i>Livros Emprestados</a>
+                    <i class="fas fa-book-reader"></i>Empréstimos</a>
             </li>
 
             <li>

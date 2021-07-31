@@ -34,45 +34,58 @@
                                         </span>
                                     </div>
                                     {!! Form::text('name',$l->name,  [ 'class' => 'form-control']) !!}
-                                    </div>   
-                                </div>
+                                </div>   
+                            </div>
             
-                                <div class="col-md-4">
+                            <div class="col-md-4">
                                 <label for="category">Categoria:</label>
-                                    <div class="input-group">
+                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basuc-addon1">
                                             <i class="fa fa-layer-group" aria-hidden="true"></i> 
                                         </span>
                                     </div>
                                     {!! Form::select('category', $cats, $l->category_id, ['class' => 'custom-select']) !!}
-                                    </div>   
-                                </div>
+                                </div>   
+                            </div>
             
-                                <div class="col-md-4">
-                                    <label for="code">Codigo:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basuc-addon1">
-                                                    <i class="fa fa-layer-group" aria-hidden="true"></i> 
-                                                </span>
-                                            </div>
-                                            {!! Form::text('code', $l->code,  [ 'class' => 'form-control']) !!}
-                                            </div>   
-                                        </div>
-                                <div class="col-md-6 mtop16">
-                                    <label for="code">Slug:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text" id="basuc-addon1">
-                                                    <i class="fa fa-keyboard" aria-hidden="true"></i> 
-                                                </span>
-                                            </div>
-                                            {!! Form::text('slug', $l->slug, [ 'class' => 'form-control']) !!}
-                                            </div>   
-                                        </div>
+                            <div class="col-md-4">
+                                <label for="code">Codigo:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basuc-addon1">
+                                            <i class="fa fa-layer-group" aria-hidden="true"></i> 
+                                        </span>
+                                    </div>
+                                    {!! Form::text('code', $l->code,  [ 'class' => 'form-control']) !!}
+                                </div>   
+                            </div>
+
+                            <div class="col-md-4 mtop16">
+                                <label for="code">Slug:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basuc-addon1">
+                                            <i class="fa fa-keyboard" aria-hidden="true"></i> 
+                                        </span>
+                                    </div>
+                                    {!! Form::text('slug', $l->slug, [ 'class' => 'form-control']) !!}
+                                </div>   
+                            </div>
+
+                            <div class="col-md-4 mtop16">
+                                <label for="code">Slug:</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basuc-addon1">
+                                            <i class="fa fa-keyboard" aria-hidden="true"></i> 
+                                        </span>
+                                    </div>
+                                    {!! Form::text('slug', $l->slug, [ 'class' => 'form-control']) !!}
+                                </div>   
+                            </div>
             
-                                <div class="col-md-6 mtop16">
+                                <div class="col-md-4 mtop16">
                                     <label for="image">Imagem:</label>
                                         <div class="custom-file">
                                         {!! Form::file('image', [ 'class' => 'custom-file-input', 'id' => 'customFile', 'accept' => 'image/']) !!}
