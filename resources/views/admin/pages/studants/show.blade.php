@@ -31,12 +31,10 @@
                             <div class="info">
                                 <span class="title"><i class="far fa-address-card" aria-hidden="true"></i> Nome:</span>
                                 <span class="text">{{ $studant->name}}</span>
-                                <span class="title"><i class="fas fa-restroom" aria-hidden="true"></i> Gênero:</span>
-                                <span class="text">{{ $studant->genre}}</span>
                                 <span class="title"><i class="far fa-calendar-alt" aria-hidden="true"></i> Data de nascimento:</span>
                                 <span class="text">{{ $studant->date_of_birth}}</span>
-                                <span class="title"><i class="fas fa-passport" aria-hidden="true"></i> Documento:</span>
-                                <span class="text">{{ $studant->document}}</span>
+                                <span class="title"><i class="fas fa-passport" aria-hidden="true"></i> Matrícula:</span>
+                                <span class="text">{{ $studant->registration}}</span>
                                 
                             </div>
                         </div>  

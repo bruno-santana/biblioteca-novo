@@ -81,7 +81,7 @@
                                             <i class="fas fa-passport"></i>
                                         </span>
                                     </div>
-                                    {!! Form::text('document', null, [ 'class' => 'form-control']) !!}
+                                    {!! Form::text('registration', null, [ 'class' => 'form-control']) !!}
                                 </div>   
                             </div>
                             

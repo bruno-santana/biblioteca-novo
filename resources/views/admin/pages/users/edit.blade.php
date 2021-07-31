@@ -82,7 +82,7 @@
                                             <i class="fas fa-passport"></i>
                                         </span>
                                     </div>
-                                    {!! Form::text('document', $user->document, [ 'class' => 'form-control']) !!}
+                                    {!! Form::text('registration', $user->registration, [ 'class' => 'form-control']) !!}
                                 </div>   
                             </div>
                             <div class="col-md-4">

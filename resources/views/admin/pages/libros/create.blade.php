@@ -68,7 +68,7 @@
                                     <i class="fa fa-keyboard" aria-hidden="true"></i> 
                                 </span>
                             </div>
-                            {!! Form::text('slug', null, [ 'class' => 'form-control']) !!}
+                            {!! Form::text('isbn', null, [ 'class' => 'form-control']) !!}
                         </div>   
                     </div>
 
@@ -77,10 +77,10 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basuc-addon1">
-                                    <i class="fa fa-keyboard" aria-hidden="true"></i> 
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i> 
                                 </span>
                             </div>
-                            {!! Form::text('slug', null, [ 'class' => 'form-control']) !!}
+                            {!! Form::text('localization', null, [ 'class' => 'form-control']) !!}
                         </div>   
                     </div>
 

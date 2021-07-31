@@ -36,10 +36,8 @@
                         <div class="info">
                             <span class="title"><i class="far fa-address-card" aria-hidden="true"></i> Nome:</span>
                             <span class="text">{{ $user->name}}</span>
-                            <span class="title"><i class="fas fa-restroom" aria-hidden="true"></i> Gênero:</span>
-                            <span class="text">{{ $user->genre}}</span>
-                            <span class="title"><i class="fas fa-passport" aria-hidden="true"></i> Documento:</span>
-                            <span class="text">{{ $user->document}}</span>
+                            <span class="title"><i class="fas fa-passport" aria-hidden="true"></i> Matrícula:</span>
+                            <span class="text">{{ $user->registration}}</span>
                         </div>
                     </div>
                            

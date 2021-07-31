@@ -59,7 +59,7 @@
                     @foreach ($studants as $studant)
                         <tr>
                             <td>{{ $studant->name }}</td>
-                            <td>{{ $studant->document }}</td>
+                            <td>{{ $studant->registration }}</td>
                             <td>{{ $studant->street }}</td>
                             <td>{{ $studant->cell }}</td>
     
@@ -67,7 +67,7 @@
                                 <div class="opts">
 
                                     <a href="{{ route('studants.show', $studant->id) }}" data-toggle="tooltip" data-placement="top" title="Informações do irmão">
-                                        <i class="fas fa-graduation-cap"></i></a>
+                                        <i class="fas fa-address-book"></i></a>
                                    
                                     <a href="{{ route('studants.edit', $studant->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
                                         <i class="fa fa-edit" aria-hidden="true"></i></a>
