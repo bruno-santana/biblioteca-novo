@@ -27,7 +27,7 @@
             
             <li>
                 <a href="{{route('studants.index')}}" class="lk-studants.index lk-studants.create lk-studants.edit lk-studants.show lk-studants.destroy ">
-                    <i class="fas fa-graduation-cap"></i>Alunos</a>
+                    <i class="fas fa-address-book"></i>Irmãos</a>
             </li>
             
             <li>

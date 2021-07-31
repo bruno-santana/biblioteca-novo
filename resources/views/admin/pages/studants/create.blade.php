@@ -24,7 +24,7 @@
 
             {!! Form::open(['route' => 'studants.store', 'files' => true]) !!}
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <label for="name">Nome:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -35,19 +35,7 @@
                         {!! Form::text('name', null,  [ 'class' => 'form-control']) !!}
                     </div>   
                 </div>
-
-                <div class="col-md-3">
-                    <label for="genre">Gênero:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fas fa-restroom" aria-hidden="true"></i> 
-                            </span>
-                        </div>
-                        {!! Form::text('genre', null, ['class' => 'form-control']) !!}
-                    </div>   
-                 </div>
-
+                
                 <div class="col-md-3">
                     <label for="date_of_birth">Data de nascimento:</label>
                     <div class="input-group">
@@ -59,8 +47,9 @@
                         {!! Form::text('date_of_birth', null, [ 'class' => 'form-control', 'mask-date']) !!}
                     </div>   
                 </div>
+
                 <div class="col-md-3">
-                    <label for="document">Documento:</label>
+                    <label for="document">Matrícula:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basuc-addon1">
@@ -70,6 +59,7 @@
                         {!! Form::text('document', null, [ 'class' => 'form-control']) !!}
                     </div>   
                 </div>
+
                 <div class="col-md-3 mtop16">
                     <label for="zipcode">CEP:</label>
                     <div class="input-group">
@@ -163,8 +153,8 @@
                     </div>   
                 </div>
                 <div class="row mtop16">
-                    <div class="col-md-12">
-                    {!! Form::submit('Cadastar', [ 'class' => 'btn btn-success']) !!}
+                    <div class="col-md-12" style="margin-left: 16px">
+                        {!! Form::submit('Cadastar', [ 'class' => 'btn btn-success']) !!}
                     </div>
                 </div>
                     {!! Form::close() !!}

@@ -15,7 +15,7 @@
 <div class="container-fluid">
     <div class="panel shadow">
         <div class="header">
-            <h3 class="title"><i class="fa fa-edit" aria-hidden="true"></i> Informações do Aluno</h3>
+            <h3 class="title"><i class="fa fa-edit" aria-hidden="true"></i> Informações do Usuário</h3>
         </div>
     </div>
 </div>

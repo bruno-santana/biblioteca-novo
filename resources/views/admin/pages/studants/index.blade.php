@@ -4,7 +4,7 @@
 
 @section('breadcrumb')
     <li class="breadcrumb-item">
-        <a href="{{url('admin/studants')}}"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Irmãos</a>
+        <a href="{{url('admin/studants')}}"><i class="fas fa-address-book" aria-hidden="true"></i> Irmãos</a>
     </li>
 @endsection
 
@@ -12,7 +12,7 @@
 <div class="container-fluid">
     <div class="panel shadow">
         <div class="header">
-            <h3 class="title"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Irmãos</h3>
+            <h3 class="title"><i class="fas fa-address-book" aria-hidden="true"></i> Irmãos</h3>
         </div>
       
         </div>
@@ -24,7 +24,7 @@
             </div>
 
            
-            <div class="btns">
+            <div class="btns" style="margin-left: 16px">
                <a href="{{ route('studants.create')}}" class="btn btn-primary">
                     <i class="fa fa-plus"></i> Novo
                 </a>
@@ -39,7 +39,7 @@
                             <i class="fas fa-search"></i>
                         </span>
                     </div>
-                    {!! Form::text('filter', null, ['class' => 'form-control',  'placeholder' => 'Digite o nome ou o documento do irmão', 'required']) !!}
+                    {!! Form::text('filter', null, ['class' => 'form-control',  'placeholder' => 'Digite o nome ou a matrícula do irmão', 'required']) !!}
                     <button class="btn btn-success" type="submit" id="button-addon2">Buscar</button>
                 </div>
                 {!! Form::close() !!}
@@ -49,7 +49,7 @@
                 <thead>
                     <tr>
                         <td>Nome</td>
-                        <td>Documento</td>
+                        <td>Matrícula</td>
                         <td>Endereço</td>
                         <td>Celular</td>
                         <td width="160"></td>

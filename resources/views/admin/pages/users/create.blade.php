@@ -7,7 +7,7 @@
         <a href="{{route('users.index')}}"><i class="fa fa-users" aria-hidden="true"></i> Usuários</a>
     </li>
     <li class="breadcrumb-item">
-        <a href="{{route('users.create')}}"><i class="fa fa-users" aria-hidden="true"></i> Novo Usuário</a>
+        <a href="{{route('users.create')}}"><i class="fa fa-user" aria-hidden="true"></i> Novo Usuário</a>
     </li>
 @endsection
 
@@ -19,7 +19,7 @@
             <div class="col-md-4">
                 <div class="panel shadow">
                     <div class="header">
-                        <h3 class="title"><i class="fas fa-user" aria-hidden="true"></i> Imagem</h3>
+                        <h3 class="title"><i class="fas fa-camera" aria-hidden="true"></i> Imagem</h3>
                     </div>
 
                     <div class="inside">
@@ -74,7 +74,7 @@
                                 </div>   
                             </div>
                             <div class="col-md-4">
-                                <label for="document">Documento:</label>
+                                <label for="document">Matrícula:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basuc-addon1">
@@ -84,29 +84,8 @@
                                     {!! Form::text('document', null, [ 'class' => 'form-control']) !!}
                                 </div>   
                             </div>
+                            
                             <div class="col-md-4">
-                                <label for="genre">Gênero:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="fas fa-restroom" aria-hidden="true"></i> 
-                                        </span>
-                                    </div>
-                                    {!! Form::text('genre', null, ['class' => 'form-control']) !!}
-                                </div>   
-                             </div>
-                            <div class="col-md-4 mtop16">
-                                <label for="date_of_birth">Data de nascimento:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                    </div>
-                                    {!! Form::text('date_of_birth', null, [ 'class' => 'form-control', 'mask-date']) !!}
-                                </div>   
-                            </div>
-                            <div class="col-md-4 mtop16">
                                 <label for="email">Email:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -115,17 +94,6 @@
                                         </span>
                                     </div>
                                     {!! Form::text('email',null,  [ 'class' => 'form-control']) !!}
-                                </div>   
-                            </div>
-                            <div class="col-md-4 mtop16">
-                                <label for="phone">Celular:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="fas fa-mobile-alt"></i> 
-                                        </span>
-                                    </div>
-                                    {!! Form::text('phone', null,  [ 'class' => 'form-control']) !!}
                                 </div>   
                             </div>
                         </div>

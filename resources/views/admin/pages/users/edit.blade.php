@@ -75,18 +75,7 @@
                                 </div>   
                             </div>
                             <div class="col-md-4">
-                                <label for="genre">Gênero:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="fas fa-restroom" aria-hidden="true"></i> 
-                                        </span>
-                                    </div>
-                                    {!! Form::text('genre', $user->genre, ['class' => 'form-control']) !!}
-                                </div>   
-                             </div>
-                            <div class="col-md-4">
-                                <label for="document">Documento:</label>
+                                <label for="document">Matrícula:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basuc-addon1">
@@ -96,18 +85,7 @@
                                     {!! Form::text('document', $user->document, [ 'class' => 'form-control']) !!}
                                 </div>   
                             </div>
-                            <div class="col-md-4 mtop16">
-                                <label for="date_of_birth">Data de nascimento:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="far fa-calendar-alt"></i>
-                                        </span>
-                                    </div>
-                                    {!! Form::text('date_of_birth', $user->date_of_birth, [ 'class' => 'form-control', 'mask-date']) !!}
-                                </div>   
-                            </div>
-                            <div class="col-md-4 mtop16">
+                            <div class="col-md-4">
                                 <label for="email">Email:</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -116,17 +94,6 @@
                                         </span>
                                     </div>
                                     {!! Form::text('email', $user->email,  [ 'class' => 'form-control', 'disabled']) !!}
-                                </div>   
-                            </div>
-                            <div class="col-md-4 mtop16">
-                                <label for="phone">Contato:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="fas fa-phone-square"></i> 
-                                        </span>
-                                    </div>
-                                    {!! Form::text('phone', $user->phone,  [ 'class' => 'form-control']) !!}
                                 </div>   
                             </div>
                         </div>

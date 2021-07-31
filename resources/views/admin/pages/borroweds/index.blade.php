@@ -24,7 +24,7 @@
             </div>
 
            
-            <div class="btns">
+            <div class="btns" style="margin-left: 16px">
                <a href="{{ route('borroweds.create')}}" class="btn btn-primary">
                     <i class="fa fa-plus"></i> Novo
                 </a>
@@ -39,7 +39,7 @@
                             <i class="fas fa-search"></i>
                         </span>
                     </div>
-                    {!! Form::text('filter', null, ['class' => 'form-control',  'placeholder' => 'Digite o nome do aluno', 'required']) !!}
+                    {!! Form::text('filter', null, ['class' => 'form-control',  'placeholder' => 'Digite o nome do irmão', 'required']) !!}
                     <button class="btn btn-success" type="submit" id="button-addon2">Buscar</button>
                 </div>
                 {!! Form::close() !!}
