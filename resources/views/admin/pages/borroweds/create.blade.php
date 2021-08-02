@@ -22,7 +22,7 @@
         {!! Form::open(['route' => 'borroweds.store']) !!}
         <div class="row">
         
-            <div class="col-md-4">
+            <div class="col-md-8">
             <label for="libro_id">Livro:</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
@@ -44,23 +44,12 @@
                     {!! Form::select('user_id', $users, 0, ['class' => 'custom-select']) !!}
                 </div>   
             </div>
-            <div class="col-md-4">
-                <label for="name_std">Responsavel:</label>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">
-                            <i class="fa fa-user" aria-hidden="true"></i> 
-                        </span>
-                    </div>
-                    {!! Form::text('name_std', null,  [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
             <div class="col-md-4 mtop16">
             <label for="studant_id">Emprestado a :</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basuc-addon1">
-                            <i class="fas fa-graduation-cap" aria-hidden="true"></i> 
+                            <i class="fas fa-user" aria-hidden="true"></i> 
                         </span>
                     </div>
                     {!! Form::select('studant_id', $studants, 0, ['class' => 'custom-select']) !!}
