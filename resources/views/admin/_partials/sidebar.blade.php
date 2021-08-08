@@ -14,39 +14,49 @@
     </div>
 
     <div class="main">
-        <ul>
+        <ul>           
+            <li>
+                <a href="{{route('dashboard.index')}}" class="lk-dashboard.index">
+                    <i class="fa fa-home" aria-hidden="true"></i>Home
+                </a>
+            </li>
+            
+            <li>
+                <a href="{{route('users.index')}}" class="lk-users.index lk-users.create lk-users.edit">
+                    <i class="fa fa-users" aria-hidden="true"></i>Usuários
+                </a>
+            </li>
+            
+            <li>
+                <a href="{{route('studants.index')}}" class="lk-studants.index lk-studants.create lk-studants.edit lk-studants.show lk-studants.destroy ">                    
+                    <i class="fas fa-address-book"></i>Irmãos
+                </a>
+            </li>
 
-            
             <li>
-                <a href="{{route('dashboard.index')}}" class="lk-dashboard.index"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
-            </li>
-            
-            <li>
-                <a href="{{route('users.index')}}" class="lk-users.index lk-users.create lk-users.edit"><i class="fa fa-users" aria-hidden="true"></i>Usuários</a>
-            </li>
-            
-            <li>
-                <a href="{{route('studants.index')}}" class="lk-studants.index lk-studants.create lk-studants.edit lk-studants.show lk-studants.destroy ">
-                    <i class="fas fa-address-book"></i>Irmãos</a>
-            </li>
-            
-            <li>
-                <a href="{{route('borroweds.index')}}" class="lk-borroweds.index lk-borroweds.edit lk-borroweds.destroy ">
-                    <i class="fas fa-book-reader"></i>Empréstimos</a>
+                <a href="{{url('/admin/categories/0')}}" class="lk-categories.home lk-categories.add lk-categories.edit lk-categories.delete">
+                    <i class="fa fa-folder-open" aria-hidden="true"></i>Categorias
+                </a>
             </li>
 
             <li>
                 <a href="{{url('/admin/libros')}}" class="lk-libros.index lk-libros.create lk-libros.edit lk-libros.destroy ">
-                    <i class="fas fa-book"></i>Livros</a>
-            </li>
-        
-            <li>
-                <a href="{{url('/admin/categories/0')}}" class="lk-categories.home lk-categories.add lk-categories.edit lk-categories.delete">
-                    <i class="fa fa-folder-open" aria-hidden="true"></i>Categorias</a>
+                    <i class="fas fa-book"></i>Livros
+                </a>
             </li>
             
             <li>
-                <a href="{{ route('web.logout') }}"><i class="fa fa-sign-out" aria-hidden="true"></i>Sair</a>
+                <a href="{{route('borroweds.index')}}" class="lk-borroweds.index lk-borroweds.edit lk-borroweds.destroy ">
+                    <i class="fas fa-book-reader"></i>Empréstimos
+                </a>
+            </li>
+            
+            <hr style="border-color:#fff;margin:12px 6px;">
+
+            <li>
+                <a href="{{ route('web.logout') }}">
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>Sair
+                </a>
             </li>
         </ul>
     </div>

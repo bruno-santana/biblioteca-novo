@@ -37,7 +37,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="{{route('dashboard.index')}}" class="nav-link">
-                                <i class="fa fa-home" aria-hidden="true"> Home</i></a>
+                                <i class="fa fa-home" aria-hidden="true"> Início</i></a>
                         </li>
                     </ul>
                 </div>
@@ -48,7 +48,7 @@
                     <nav aria-label="breadcrumb shadow">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{route('dashboard.index')}}"><i class="fa fa-home" aria-hidden="true"></i>Home</a>
+                                <a href="{{route('dashboard.index')}}"><i class="fa fa-home" aria-hidden="true"></i>Início</a>
                             </li>
                             @section('breadcrumb')      
                             @show

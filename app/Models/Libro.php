@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Libro extends Model
 {
-    protected $fillable = ['code', 'name', 'slug','category_id', 'image', 'description'];
+    protected $fillable = [
+        'code', 
+        'name', 
+        'isbn', 
+        'localization', 
+        'category_id', 
+        'image', 
+        'description'
+    ];
 
     public function cat()
     {

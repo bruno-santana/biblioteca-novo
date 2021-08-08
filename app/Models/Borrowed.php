@@ -7,7 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Borrowed extends Model
 {
-    protected $fillable = ['name_std', 'user_id', 'studant_id', 'libro_id', 'token_borrowed','token_returned'];
+    protected $fillable = [
+        'name_std', 
+        'user_id', 
+        'studant_id', 
+        'libro_id', 
+        'token_borrowed',
+        'token_returned'
+    ];
 
     public function user()
     {

@@ -47,7 +47,7 @@ class StudantController extends Controller
     {
         $this->repository->create($request->all());
 
-        return back()->with('message', 'Estudante criado com sucesso.')->with('typealert', 'success');
+        return back()->with('message', 'Irmão criado com sucesso.')->with('typealert', 'success');
     }
 
     /**

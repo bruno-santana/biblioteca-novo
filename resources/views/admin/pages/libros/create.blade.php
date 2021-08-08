@@ -24,7 +24,7 @@
 
                 {!! Form::open(['route' => 'libros.store', 'files' => true]) !!}
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <label for="name">Nome:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -37,30 +37,6 @@
                     </div>
 
                     <div class="col-md-4">
-                        <label for="category">Categoria:</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basuc-addon1">
-                                    <i class="fa fa-layer-group" aria-hidden="true"></i> 
-                                </span>
-                            </div>
-                            {!! Form::select('category', $cats, 0, ['class' => 'custom-select']) !!}
-                        </div>   
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="code">Codigo:</label>
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basuc-addon1">
-                                    <i class="fa fa-layer-group" aria-hidden="true"></i> 
-                                </span>
-                            </div>
-                            {!! Form::text('code', 0,  [ 'class' => 'form-control']) !!}
-                        </div>   
-                    </div>
-
-                    <div class="col-md-4 mtop16">
                         <label for="code">ISBN:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">
@@ -73,6 +49,43 @@
                     </div>
 
                     <div class="col-md-4 mtop16">
+                        <label for="category">Categoria:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basuc-addon1">
+                                    <i class="fa fa-layer-group" aria-hidden="true"></i> 
+                                </span>
+                            </div>
+                            {!! Form::select('category_id', $cats, null, ['class' => 'custom-select']) !!}
+                        </div>   
+                    </div>
+
+                    <div class="col-md-4 mtop16">
+                        <label for="code">Nacionalidade:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basuc-addon1">
+                                    <i class="fa fa-layer-group" aria-hidden="true"></i> 
+                                </span>
+                            </div>
+                            {!! Form::text('code', 0,  [ 'class' => 'form-control']) !!}
+                        </div>   
+                    </div>
+
+                    <div class="col-md-4 mtop16">
+                        <label for="code">Coluna:</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basuc-addon1">
+                                    <i class="fa fa-layer-group" aria-hidden="true"></i> 
+                                </span>
+                            </div>
+                            {!! Form::text('code', 0,  [ 'class' => 'form-control']) !!}
+                        </div>   
+                    </div>
+                    
+
+                    <div class="col-md-3 mtop16">
                         <label for="code">Localização:</label>
                         <div class="input-group">
                             <div class="input-group-prepend">

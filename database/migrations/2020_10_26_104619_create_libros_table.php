@@ -15,14 +15,16 @@ class CreateLibrosTable extends Migration
     {
         Schema::create('libros', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('category_id');
             $table->string('code')->default('0');
             $table->string('name');
             $table->string('isbn');
             $table->string('localization');
-            $table->integer('category_id');
             $table->string('image');
             $table->text('description');
             $table->timestamps();
+
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
