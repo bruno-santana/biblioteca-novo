@@ -151,7 +151,7 @@
                     </div>   
                 </div>
                 <div class="row mtop16">
-                    <div class="col-md-12">
+                    <div class="col-md-12" style="margin-left: 16px">
                     {!! Form::submit('Atualizar', [ 'class' => 'btn btn-success']) !!}
                     </div>
                 </div>

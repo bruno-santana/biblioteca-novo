@@ -48,25 +48,16 @@
                 <table class="table table-striped mtop16">
                     <thead>
                         <tr>
-                            <td>ID</td>
-                            <td></td>
-                            <td>Nome</td>
-                            <td>Código</td>
-                            
+                            <td width="120">Código</td>
+                            <td>Nome</td>                          
                             <td width="110"></td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($libros as $libro)
                             <tr>
-                                <td width="50">{{ $libro->id }}</td>
-                                <td width="72"> 
-                                    <img src="{{ url("storage/{$libro->image}") }}" alt="{{ $libro->name }}" style="max-width: 72px;">
-                                </td>
-                                <td>{{ $libro->name }}</td>
                                 <td>{{ $libro->code }}</td>
-                                
-                                
+                                <td>{{ $libro->name }}</td>
                                 <td>
                                     <div class="opts">
                                        

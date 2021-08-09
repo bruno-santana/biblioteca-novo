@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Libro;
-use Illuminate\Support\Facades\Storage;
+use PhpParser\Node\Expr\AssignOp\Concat;
 
 class LibroController extends Controller
 {
@@ -24,7 +24,16 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = $this->repository->latest()->paginate();
+        /*$libros = $this->repository->latest()->paginate();
+
+        return view('admin.pages.libros.index', compact('libros'));*/
+
+        $libros = Libro::all();
+
+        foreach ($libros as $libro){
+            $cat = Category::find($libro['category_id']);
+            $libro['category'] = $cat['name'];
+        }
 
         return view('admin.pages.libros.index', compact('libros'));
     }
@@ -37,8 +46,13 @@ class LibroController extends Controller
     public function create()
     { 
         
-        $cats = Category::where('module', '0')->pluck('name', 'id');
-        $data = ['cats' => $cats];
+        //$cats = Category::where('module', '0')->pluck('name', 'id');
+        $cats = Category::all();
+
+        $data = [
+            'cats' => $cats
+        ];
+
         return view('admin.pages.libros.create', $data);
     }
 
@@ -52,11 +66,15 @@ class LibroController extends Controller
     {
         $data = $request->all();
 
-        if ($request->hasFile('image') && $request->image->isValid()) {
-            $data['image'] = $request->image->store("libros");
+        if ($data['category_id'] < 10){
+            $categoria = "0".$data['category_id'];
         }
 
-        $this->repository->create($data);
+        $code = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position'];
+
+        $data['code'] = $code;
+        
+        Libro::create($data);
 
         return back()->with('message', 'Livro adicionado com sucesso.')->with('typealert', 'success');
     }
@@ -81,29 +99,20 @@ class LibroController extends Controller
     public function edit($id)
     {
         $l = Libro::findOrFail($id);
-        $cats = Category::where('module', '0')->pluck('name', 'id');
+        $cats = Category::all();
         $data = ['cats' => $cats, 'l' => $l ];
+
         return view('admin.pages.libros.edit', $data);
     }
 
     public function postUpdate(Request $request, $id)
     {
-        if (!$libro = $this->repository->find($id)) {
+        if (!$libro = Libro::find($id)) {
             return redirect()->back();
         }
 
         $data = $request->all();
-
-
-        if ($request->hasFile('image') && $request->image->isValid()) {
-
-            if (Storage::exists($libro->image)) {
-                Storage::delete($libro->image);
-            }
-
-            $data['image'] = $request->image->store("libros");
-        }
-
+        
         $libro->update($data);
 
         return redirect()->route('libros.index');
@@ -131,10 +140,6 @@ class LibroController extends Controller
     {
         if (!$libro = $this->repository->find($id)) {
             return redirect()->back();
-        }
-
-        if (Storage::exists($libro->image)) {
-            Storage::delete($libro->image);
         }
 
         if($libro->delete()):

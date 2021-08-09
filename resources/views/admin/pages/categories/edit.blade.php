@@ -25,7 +25,7 @@
                    </div>
 
                     <div class="inside">
-                    {!! Form::open(['url' => '/admin/category/'.$cat->id.'/edit]) !!}
+                    {!! Form::open(['url' => '/admin/category/'.$cat->id.'/edit']) !!}
                     <label for="name">Nome:</label>
                     <div class="input-group">
                         <div class="input-group-prepend">

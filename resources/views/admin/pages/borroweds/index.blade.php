@@ -48,7 +48,6 @@
             <table class="table table-striped mtop16">
                 <thead>
                     <tr>
-                        <td></td>
                         <td>Titulo</td>
                         <td>Emprestado por</td>
                         <td>Emprestado a</td>
@@ -60,12 +59,9 @@
                 <tbody>
                     @foreach ($borroweds as $borrowed)
                         <tr>
-                            <td width="72"> 
-                                <img src="{{ url("storage/{$borrowed->libro->image}") }}" alt="{{ $borrowed->libro->name }}" style="max-width: 72px;">
-                            </td>
                             <td>{{ $borrowed->libro->name }}</td>
                             <td>{{ $borrowed->user->name }}</td>
-                            <td>{{ $borrowed->name_std }}</td>
+                            <td>{{ $borrowed->studant_name }}</td>
                             <td>{{ date( 'd/m/Y' , strtotime($borrowed->token_borrowed)) }}</td>
                             <td>{{ date( 'd/m/Y' , strtotime($borrowed->token_returned)) }}</td>
                             <td>

@@ -28,6 +28,11 @@ class BorrowedController extends Controller
     {
         $borroweds = Borrowed::orderBy('token_borrowed')->get();
 
+        foreach($borroweds as $borrowed){
+            $std = Studant::find($borrowed['studant_id']);
+            $borrowed['studant_name'] = $std['name'];
+        }
+
         return view('admin.pages.borroweds.index', compact('borroweds'));
     }
 

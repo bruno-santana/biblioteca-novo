@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Libro extends Model
 {
     protected $fillable = [
+        'category_id', 
         'code', 
         'name', 
         'isbn', 
-        'localization', 
-        'category_id', 
-        'image', 
+        'nationality', 
+        'column', 
+        'line', 
+        'position', 
         'description'
     ];
 

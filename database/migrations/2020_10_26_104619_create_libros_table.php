@@ -16,11 +16,13 @@ class CreateLibrosTable extends Migration
         Schema::create('libros', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
-            $table->string('code')->default('0');
+            $table->string('code');
             $table->string('name');
             $table->string('isbn');
-            $table->string('localization');
-            $table->string('image');
+            $table->enum('nationality',['01','02']);
+            $table->enum('column',['A','B','C','D']);
+            $table->enum('line',['1','2','3','4','5','6']);
+            $table->enum('position',['1','2','3']);
             $table->text('description');
             $table->timestamps();
 
