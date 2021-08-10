@@ -80,35 +80,37 @@
                             </div>
                             {!! Form::close() !!}
                         </div>
-                        <table class="table mtop16">
-                            <thead>
-                                <tr>
-                                    <td>Nome</td>
-                                    <td>Descrição</td>
-                                    <td width="110"></td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($cats as $cat)
+                        <div class="table-responsive">
+                            <table class="table table-fixed mtop16">
+                                <thead>
                                     <tr>
-                                        <td>{{$cat->name}}</td>
-                                        <td>{{$cat->description}}</td>
-                                        <td>
-                                            <div class="opts">
-                                                
-                                                <a href="{{ route('categories.edit', $cat->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
-                                                    <i class="fa fa-edit" aria-hidden="true"></i></a>
-                                               
-                                               
-                                                <a href="{{ url('/admin/category/'.$cat->id.'/delete') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
-                                                    <i class="fa fa-trash-alt" aria-hidden="true"></i></a>
-                                                
-                                           </div>
-                                        </td>
+                                        <th scope="col" class="col-5">Nome</th>
+                                        <th scope="col" class="col-5">Descrição</th>
+                                        <th scope="col" class="col-2">Ações</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    @foreach ($cats as $cat)
+                                        <tr>
+                                            <td scope="row" class="col-5">{{$cat->name}}</td>
+                                            <td class="col-5">{{$cat->description}}</td>
+                                            <td class="col-2">
+                                                <div class="opts">
+                                                    
+                                                    <a href="{{ route('categories.edit', $cat->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                                        <i class="fa fa-edit" aria-hidden="true"></i></a>
+                                                
+                                                
+                                                    <a href="{{ url('/admin/category/'.$cat->id.'/delete') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
+                                                        <i class="fa fa-trash-alt" aria-hidden="true"></i></a>
+                                                    
+                                            </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>   
             </div>

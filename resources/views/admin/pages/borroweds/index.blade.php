@@ -45,36 +45,38 @@
                 {!! Form::close() !!}
             </div>
 
-            <table class="table table-striped mtop16">
-                <thead>
-                    <tr>
-                        <td>Titulo</td>
-                        <td>Emprestado por</td>
-                        <td>Emprestado a</td>
-                        <td>Emprestado em</td>
-                        <td>Prazo para devolver</td>
-                        <td width="110"></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($borroweds as $borrowed)
+            <div class="table-responsive">
+                <table class="table table-striped table-fixed mtop16">
+                    <thead>
                         <tr>
-                            <td>{{ $borrowed->libro->name }}</td>
-                            <td>{{ $borrowed->user->name }}</td>
-                            <td>{{ $borrowed->studant_name }}</td>
-                            <td>{{ date( 'd/m/Y' , strtotime($borrowed->token_borrowed)) }}</td>
-                            <td>{{ date( 'd/m/Y' , strtotime($borrowed->token_returned)) }}</td>
-                            <td>
-                                <div class="opts">           
-                                    <a href="{{ url('/admin/borrowed/'.$borrowed->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
-                                        <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                                    </a>   
-                               </div>
-                            </td>
+                            <th scope="col" class="col-3">Titulo</th>
+                            <th scope="col" class="col-2">Emprestado por</th>
+                            <th scope="col" class="col-2">Emprestado a</th>
+                            <th scope="col" class="col-2">Emprestado em</th>
+                            <th scope="col" class="col-2">Prazo para devolver</th>
+                            <th scope="col" class="col-1">Ações</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($borroweds as $borrowed)
+                            <tr>
+                                <td scope="row" class="col-3">{{ $borrowed->libro->name }}</td>
+                                <td class="col-2">{{ $borrowed->user->name }}</td>
+                                <td class="col-2">{{ $borrowed->studant_name }}</td>
+                                <td class="col-2">{{ date( 'd/m/Y' , strtotime($borrowed->token_borrowed)) }}</td>
+                                <td class="col-2">{{ date( 'd/m/Y' , strtotime($borrowed->token_returned)) }}</td>
+                                <td class="col-1">
+                                    <div class="opts">           
+                                        <a href="{{ url('/admin/borrowed/'.$borrowed->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
+                                            <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                        </a>   
+                                </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

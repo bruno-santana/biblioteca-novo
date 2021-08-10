@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="panel shadow">
                     <div class="header">
-                        <h3 class="title"><i class="fa fa-edit" aria-hidden="true"></i> Editar Livro - {{ $l->code }}</h3>
+                        <h3 class="title"><i class="fa fa-edit" aria-hidden="true"></i> Editar Livro || {{ $l->code }} || {{ $l->name }}</h3>
                     </div>
         
                     <div class="inside">

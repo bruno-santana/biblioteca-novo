@@ -45,43 +45,44 @@
                 {!! Form::close() !!}
             </div>
 
-            <table class="table table-striped mtop16">
-                <thead>
-                    <tr>
-                        <td>Nome</td>
-                        <td>Matrícula</td>
-                        <td>Endereço</td>
-                        <td>Celular</td>
-                        <td width="160"></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($studants as $studant)
+            <div class="table-responsive">
+                <table class="table table-striped table-fixed mtop16">
+                    <thead>
                         <tr>
-                            <td>{{ $studant->name }}</td>
-                            <td>{{ $studant->registration }}</td>
-                            <td>{{ $studant->street }}</td>
-                            <td>{{ $studant->cell }}</td>
-    
-                            <td>
-                                <div class="opts">
-
-                                    <a href="{{ route('studants.show', $studant->id) }}" data-toggle="tooltip" data-placement="top" title="Informações do irmão">
-                                        <i class="fas fa-address-book"></i></a>
-                                   
-                                    <a href="{{ route('studants.edit', $studant->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <i class="fa fa-edit" aria-hidden="true"></i></a>
-                                    
-                                    
-                                    <a href="{{ url('/admin/studant/'.$studant->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
-                                        <i class="fa fa-trash-alt" aria-hidden="true"></i></a>
-                                    
-                               </div>
-                            </td>
+                            <th scope="col" class="col-4">Nome</th>
+                            <th scope="col" class="col-1">Matrícula</th>
+                            <th scope="col" class="col-3">Endereço</th>
+                            <th scope="col" class="col-2">Celular</th>
+                            <th scope="col" class="col-2">Ações</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($studants as $studant)
+                            <tr>
+                                <td scope="row" class="col-4">{{ $studant->name }}</td>
+                                <td class="col-1">{{ $studant->registration }}</td>
+                                <td class="col-3">{{ $studant->street }}</td>
+                                <td class="col-2">{{ $studant->cell }}</td>
+        
+                                <td class="col-2">
+                                    <div class="opts">
+                                        <a href="{{ route('studants.show', $studant->id) }}" data-toggle="tooltip" data-placement="top" title="Informações do irmão">
+                                            <i class="fas fa-address-book"></i></a>
+                                    
+                                        <a href="{{ route('studants.edit', $studant->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <i class="fa fa-edit" aria-hidden="true"></i>
+                                        </a>                                        
+                                        
+                                        <a href="{{ url('/admin/studant/'.$studant->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
+                                            <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                        </a>                                        
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

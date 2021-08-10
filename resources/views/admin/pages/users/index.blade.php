@@ -40,46 +40,41 @@
             </div>
 
             <div class="inside">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td></td>
-                            <td>Nome</td>
-                            <td>Email</td>
-                            <td width="160"></td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr>
-                            <td width="64">
-                            @if(is_null(Auth::user()->avatar ))
-                                <img src="{{ url('/static/images/user-default.png') }}" class="img-fluid rounded-circle">
-                            @else
-                            <img src="{{ url("storage/{$user->avatar}") }}" alt="{{ $user->name }}" style="max-width: 72px;">
-                            @endif
-                            </td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email}}</td>
-                            <td>
-                               <div class="opts">
-                                    <a href="{{ route('users.show', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Informações do usuário">
-                                        <i class="fas fa-user"></i></a>
+                <div class="table-responsive">
+                    <table class="table table-fixed">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="col-4">Nome</th>
+                                <th scope="col" class="col-4">Email</th>
+                                <th scope="col" class="col-4">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $user)
+                            <tr>
+                                <td scope="row" class="col-4">{{ $user->name }}</td>
+                                <td class="col-4">{{ $user->email}}</td>
+                                <td class="col-4">
+                                    <div class="opts">
+                                        <a href="{{ route('users.show', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Informações do usuário">
+                                            <i class="fas fa-user"></i>
+                                        </a>
 
-                                    <a href="{{ route('users.edit', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
-                                        <i class="fa fa-edit" aria-hidden="true"></i></a>
-                                   
+                                        <a href="{{ route('users.edit', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                            <i class="fa fa-edit" aria-hidden="true"></i>
+                                        </a>
                                     
-                                    <a href="{{ route('users.destroy', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Excluir">
-                                        <i class="fa fa-trash-alt" aria-hidden="true"></i></a>
-                                    
-                                   
-                               </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                                        
+                                        <a href="{{ route('users.destroy', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Excluir">
+                                            <i class="fa fa-trash-alt" aria-hidden="true"></i>]
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

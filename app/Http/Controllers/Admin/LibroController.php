@@ -35,7 +35,11 @@ class LibroController extends Controller
             $libro['category'] = $cat['name'];
         }
 
-        return view('admin.pages.libros.index', compact('libros'));
+        $lastId = Libro::max('id');
+        $last = Libro::find($lastId);
+
+
+        return view('admin.pages.libros.index', compact('libros','last'));
     }
 
     /**
@@ -70,7 +74,9 @@ class LibroController extends Controller
             $categoria = "0".$data['category_id'];
         }
 
-        $code = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position'];
+        $count =  (Libro::count('id')) + 1;
+
+        $code = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position']."-".$count;
 
         $data['code'] = $code;
         
@@ -161,6 +167,9 @@ class LibroController extends Controller
                             ->latest()
                             ->paginate();
 
-        return view('admin.pages.libros.index', compact('libros', 'filters'));
+        $lastId = Libro::max('id');
+        $last = Libro::find($lastId);
+
+        return view('admin.pages.libros.index', compact('libros', 'filters', 'last'));
     }
 }
