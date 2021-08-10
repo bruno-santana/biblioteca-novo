@@ -18,12 +18,12 @@ class CreateLibrosTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('code');
             $table->string('name');
-            $table->string('isbn');
+            $table->string('isbn')->nullable();
             $table->enum('nationality',['01','02']);
             $table->enum('column',['A','B','C','D']);
             $table->enum('line',['1','2','3','4','5','6']);
             $table->enum('position',['1','2','3']);
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories');

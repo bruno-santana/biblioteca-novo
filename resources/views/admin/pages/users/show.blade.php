@@ -57,7 +57,7 @@
                                 <span class="title"><i class="fas fa-phone-square" aria-hidden="true"></i> Telefone:</span>
                                 <span class="text">{{ $user->phone}}</span>
                                 <span class="title"><i class="far fa-calendar-alt" aria-hidden="true"></i> Registro:</span>
-                                <span class="text">{{ $user->created_at}}</span>
+                                <span class="text">{{ $user->created_at->format('d/m/Y - H:i:s')}}</span>
                             </div>
                         </div>
                                
