@@ -84,17 +84,15 @@
                             <table class="table table-fixed mtop16">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="col-5">Nome</th>
-                                        <th scope="col" class="col-5">Descrição</th>
-                                        <th scope="col" class="col-2">Ações</th>
+                                        <th scope="col" class="col-8">Nome</th>
+                                        <th scope="col" class="col-4">Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($cats as $cat)
                                         <tr>
-                                            <td scope="row" class="col-5">{{$cat->name}}</td>
-                                            <td class="col-5">{{$cat->description}}</td>
-                                            <td class="col-2">
+                                            <td scope="row" class="col-8">{{$cat->name}}</td>
+                                            <td class="col-4">
                                                 <div class="opts">
                                                     
                                                     <a href="{{ route('categories.edit', $cat->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
