@@ -15,94 +15,95 @@
 <div class="container-fluid">
     @include('admin.includes.alerts')
     <div class="page_user">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="panel shadow">
-                    <div class="header">
-                        <h3 class="title"><i class="fas fa-camera" aria-hidden="true"></i> Imagem</h3>
-                    </div>
-
-                    <div class="inside">
-                        {!! Form::open(['route' => 'users.store', 'files' => true]) !!}
-                        <div class="mini_profile">
+        <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel shadow">
+                        <div class="header">
+                            <h3 class="title">
+                                <i class="fas fa-camera" aria-hidden="true"></i> Imagem
+                            </h3>
                         </div>
+
+                        <div class="inside">
+                            <div class="mini_profile">
+                            
+                            </div>
                             <div class="custom-file mtop16">
-                            {!! Form::file('avatar', [ 'class' => 'custom-file-input', 'accept' => 'image/']) !!}
-                            <label class="custom-file-label" for="customFile">Escolher Imagem</label>
-                            </div>
-                        </div>
-                    </div>
-                <div class="panel shadow mtop16">
-                    <div class="header">
-                        <h3 class="title"><i class="fas fa-fingerprint"></i> Criar a senha</h3>
-                    </div>
-                    <div class="inside">
-                        <div class="row mto16">
-                            <div class="col-md-12">
-                                <label for="password">Criar a senha:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="fas fa-fingerprint" aria-hidden="true"></i> 
-                                        </span>
-                                    </div>
-                                    {!! Form::password('password', [ 'class' => 'form-control']) !!}
-                                </div>   
+                                <label class="custom-file-label" for="avatar">Escolher Imagem</label>
+                                <input type="file" class="custom-file-input" name="avatar" id="avatar">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="mtop16"></div>
-                </div>
-
                 <div class="col-md-8">
                     <div class="panel shadow">
                         <div class="header">
-                            <h3 class="title"><i class="fas fa-address-card" aria-hidden="true"></i> Informações</h3>
+                            <h3 class="title">
+                                <i class="fas fa-address-card" aria-hidden="true"></i> Informações
+                            </h3>
                         </div>
+
                         <div class="inside">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <label for="name">Nome:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="fa fa-keyboard" aria-hidden="true"></i> 
-                                        </span>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <label for="name">Nome:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="fa fa-keyboard" aria-hidden="true"></i> 
+                                            </span>
+                                        </div>
+                                        <input type="text" name="name" class="form-control" placeholder="Nome do usuário">
                                     </div>
-                                    {!! Form::text('name', null,  [ 'class' => 'form-control']) !!}
-                                </div>   
-                            </div>
-                            <div class="col-md-4">
-                                <label for="document">Matrícula:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basuc-addon1">
-                                            <i class="fas fa-passport"></i>
-                                        </span>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="name">Matrícula:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="fa fa-keyboard" aria-hidden="true"></i> 
+                                            </span>
+                                        </div>
+                                        <input type="text" name="registration" class="form-control" placeholder="Matrícula">
                                     </div>
-                                    {!! Form::text('registration', null, [ 'class' => 'form-control']) !!}
-                                </div>   
-                            </div>
-                            
-                            <div class="col-md-4">
-                                <label for="email">Email:</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">
-                                            <i class="far fa-envelope-open" aria-hidden="true"></i> 
-                                        </span>
+                                </div>
+
+                                <div class="col-md-8 mtop16">
+                                    <label for="name">Email:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="fa fa-keyboard" aria-hidden="true"></i> 
+                                            </span>
+                                        </div>
+                                        <input type="text" name="email" class="form-control" placeholder="Email">
                                     </div>
-                                    {!! Form::text('email',null,  [ 'class' => 'form-control']) !!}
-                                </div>   
+                                </div>
+                                <div class="col-md-4 mtop16">
+                                    <label for="name">Criar a senha:</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">
+                                                <i class="fa fa-fingerprint" aria-hidden="true"></i> 
+                                            </span>
+                                        </div>
+                                        <input type="password" name="password" class="form-control" placeholder="Senha">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        {!! Form::submit('Salvar', [ 'class' => 'btn btn-success mtop16']) !!}
-                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="row mtop16">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-success">Cadastar</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
 @endsection

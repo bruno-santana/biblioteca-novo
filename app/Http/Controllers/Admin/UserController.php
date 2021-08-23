@@ -3,23 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdateUser;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
-{
-    public function __construct(User $user)
-    {
-        $this->repository = $user;
-
-        //$this->middleware(['can:users']);
-    }
-    
+{    
     public function index()
     {
-        $users = $this->repository->latest()->paginate();
+        $users = User::latest()->paginate();
 
         return view('admin.pages.users.index', compact('users'));
     }
@@ -41,7 +33,7 @@ class UserController extends Controller
             $data['password'] = bcrypt($request->password);
         }
 
-        $this->repository->create($data);
+        User::create($data);
 
         return back()->with('message', 'Usuário adicionado com sucesso.')->with('typealert', 'success');
     }
@@ -49,7 +41,7 @@ class UserController extends Controller
     public function show($id)
     {
         
-        if (!$user = $this->repository->find($id)) {
+        if (!$user = User::find($id)) {
             return redirect()->back();
         }
 
@@ -58,7 +50,7 @@ class UserController extends Controller
 
     public function edit($id)
     {
-        if (!$user = $this->repository->find($id)) {
+        if (!$user = User::find($id)) {
             return redirect()->back();
         }
 
@@ -67,7 +59,7 @@ class UserController extends Controller
 
     public function postUpdate(Request $request, $id)
     {
-        if (!$user = $this->repository->find($id)) {
+        if (!$user = User::find($id)) {
             return redirect()->back();
         }
 
@@ -105,15 +97,14 @@ class UserController extends Controller
     {
         $filters = $request->only('filter');
 
-        $users = $this->repository
-                            ->where(function($query) use ($request) {
-                                if ($request->filter) {
-                                    $query->orWhere('name', 'LIKE', "%{$request->filter}%");
-                                    $query->orWhere('email', $request->filter);
-                                }
-                            })
-                            ->latest()
-                            ->paginate();
+        $users = User::where(function($query) use ($request) {
+            if ($request->filter) {
+                $query->orWhere('name', 'LIKE', "%{$request->filter}%");
+                $query->orWhere('email', $request->filter);
+            }
+        })
+        ->latest()
+        ->paginate();
 
         return view('admin.pages.users.index', compact('users', 'filters'));
     }

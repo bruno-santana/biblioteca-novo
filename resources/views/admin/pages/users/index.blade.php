@@ -52,8 +52,8 @@
                         <tbody>
                             @foreach ($users as $user)
                             <tr>
-                                <td scope="row" class="col-4">{{ $user->name }}</td>
-                                <td class="col-4">{{ $user->email}}</td>
+                                <td scope="row" class="col-4">{{ strtoupper($user->name) }}</td>
+                                <td class="col-4">{{ strtoupper($user->email) }}</td>
                                 <td class="col-4">
                                     <div class="opts">
                                         <a href="{{ route('users.show', $user->id) }}" data-toggle="tooltip" data-placement="top" title="Informações do usuário">

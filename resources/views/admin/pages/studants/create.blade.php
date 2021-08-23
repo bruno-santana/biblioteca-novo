@@ -20,144 +20,168 @@
 
             <div class="inside">
             
-            @include('admin.includes.alerts')
-
-            {!! Form::open(['route' => 'studants.store', 'files' => true]) !!}
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="name">Nome:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fa fa-keyboard" aria-hidden="true"></i> 
-                            </span>
-                        </div>
-                        {!! Form::text('name', null,  [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
+                @include('admin.includes.alerts')
                 
-                <div class="col-md-3">
-                    <label for="date_of_birth">Data de nascimento:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="far fa-calendar-alt"></i>
-                            </span>
+                <form action="{{ route('studants.store') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="row">
+                        <div class="col-md-8">
+                            <label for="name">Nome:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-keyboard" aria-hidden="true"></i> 
+                                    </span>
+                                </div>
+                                <input type="text" name="name" class="form-control" placeholder="Nome do Irmão">
+                            </div>
                         </div>
-                        {!! Form::text('date_of_birth', null, [ 'class' => 'form-control', 'mask-date']) !!}
-                    </div>   
-                </div>
 
-                <div class="col-md-3">
-                    <label for="document">Matrícula:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basuc-addon1">
-                                <i class="fas fa-passport"></i>
-                            </span>
+                        <div class="col-md-4">
+                            <label for="registration">Matrícula:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-passport" aria-hidden="true"></i> 
+                                    </span>
+                                </div>
+                                <input type="text" name="registration" class="form-control" placeholder="Matrícula">
+                            </div>
                         </div>
-                        {!! Form::text('registration', null, [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
-
-                <div class="col-md-3 mtop16">
-                    <label for="zipcode">CEP:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fa fa-keyboard" aria-hidden="true"></i> 
-                            </span>
-                        </div>
-                        {!! Form::text('zipcode', null,  [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
-            
-                <div class="col-md-3 mtop16">
-                    <label for="street">Rua:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fas fa-road"></i>
-                            </span>
-                        </div>
-                        {!! Form::text('street', null, ['class' => 'form-control']) !!}
-                    </div>   
-                </div>
-            
-                <div class="col-md-3 mtop16">
-                    <label for="number">Número:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fas fa-sort-numeric-up-alt"></i>
-                            </span>
-                        </div>
-                        {!! Form::text('number', null,  [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
-                <div class="col-md-3 mtop16">
-                    <label for="complement">Complemento:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basuc-addon1">
-                                <i class="fa fa-keyboard"></i>
-                            </span>
-                        </div>
-                        {!! Form::text('complement', null, [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
-                <div class="col-md-3 mtop16">
-                    <label for="neighborhood">Bairro:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fa fa-keyboard" aria-hidden="true"></i> 
-                            </span>
-                        </div>
-                        {!! Form::text('neighborhood', null,  [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
-            
-                <div class="col-md-3 mtop16">
-                    <label for="state">Estado:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fab fa-usps"></i> 
-                            </span>
-                        </div>
-                        {!! Form::text('state', null, ['class' => 'form-control']) !!}
-                    </div>   
-                </div>
-            
-                <div class="col-md-3 mtop16">
-                    <label for="city">Cidade:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basic-addon1">
-                                <i class="fas fa-city"></i>
-                            </span>
-                        </div>
-                        {!! Form::text('city', null,  [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
-                <div class="col-md-3 mtop16">
-                    <label for="cell">Celular:</label>
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="basuc-addon1">
-                                <i class="fas fa-mobile-alt"></i>
-                            </span>
-                        </div>
-                        {!! Form::text('cell', null, [ 'class' => 'form-control']) !!}
-                    </div>   
-                </div>
-                <div class="row mtop16">
-                    <div class="col-md-12" style="margin-left: 16px">
-                        {!! Form::submit('Cadastar', [ 'class' => 'btn btn-success']) !!}
                     </div>
-                </div>
-                    {!! Form::close() !!}
+
+                    <div class="row mtop16">
+                        <div class="col-md-3">
+                            <label for="date_of_birth">Data de Nascimento:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-calendar-alt" aria-hidden="true"></i> 
+                                    </span>
+                                </div>
+                                <input type="text" name="date_of_birth" class="form-control" placeholder="Data de Nascimento">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="cell">Celular:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-mobile-alt" aria-hidden="true"></i> 
+                                    </span>
+                                </div>
+                                <input type="text" name="cell" class="form-control" placeholder="Número Celular">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email">Email:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-at" aria-hidden="true"></i> 
+                                    </span>
+                                </div>
+                                <input type="text" name="email" class="form-control" placeholder="Endereço de email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mtop16">
+                        <div class="col-md-6">
+                            <label for="street">Rua:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fas fa-road"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="street" class="form-control" placeholder="Rua">
+                            </div>   
+                        </div>
+                    
+                        <div class="col-md-3">
+                            <label for="number">Número:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fas fa-sort-numeric-up-alt"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="number" class="form-control" placeholder="Número">
+                            </div>   
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="complement">Complemento:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basuc-addon1">
+                                        <i class="fa fa-keyboard"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="complement" class="form-control" placeholder="Número">
+                            </div>   
+                        </div>                        
+                    </div>
+
+                    <div class="row mtop16">
+                        <div class="col-md-3">
+                            <label for="neighborhood">Bairro:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basuc-addon1">
+                                        <i class="fa fa-keyboard"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="neighborhood" class="form-control" placeholder="Bairro">
+                            </div>   
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="zipcode">CEP:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fas fa-keyboard"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="zipcode" class="form-control" placeholder="CEP">
+                            </div>   
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="city">Cidade:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basuc-addon1">
+                                        <i class="fas fa-city"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="city" class="form-control" placeholder="Cidade">
+                            </div>   
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="state">Estado:</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fab fa-usps"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="state" class="form-control" placeholder="Estado">
+                            </div>   
+                        </div>
+                    </div>
+
+                    <div class="row mtop16">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-success">Cadastar</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

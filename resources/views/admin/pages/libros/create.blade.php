@@ -41,7 +41,7 @@
                             <label for="isbn">ISBN:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basuc-addon1">
+                                    <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-keyboard" aria-hidden="true"></i> 
                                     </span>
                                 </div>
@@ -53,7 +53,7 @@
                             <label for="category">Categoria:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basuc-addon1">
+                                    <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-layer-group" aria-hidden="true"></i> 
                                     </span>
                                 </div>
@@ -72,7 +72,7 @@
                             <label for="nationality">Nacionalidade:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basuc-addon1">
+                                    <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-layer-group" aria-hidden="true"></i> 
                                     </span>
                                 </div>
@@ -88,7 +88,7 @@
                             <label for="column">Coluna:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basuc-addon1">
+                                    <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-layer-group" aria-hidden="true"></i> 
                                     </span>
                                 </div>
@@ -106,7 +106,7 @@
                             <label for="line">Linha:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basuc-addon1">
+                                    <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-layer-group" aria-hidden="true"></i> 
                                     </span>
                                 </div>
@@ -126,7 +126,7 @@
                             <label for="position">Localização:</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basuc-addon1">
+                                    <span class="input-group-text" id="basic-addon1">
                                         <i class="fa fa-layer-group" aria-hidden="true"></i> 
                                     </span>
                                 </div>
@@ -143,7 +143,7 @@
                     <div class="row mtop16">
                         <div class="col-md-12">
                             <label for="description">Descrição:</label>
-                            <textarea class="form-control" name="description" id="description" rows="5" placeholder="Breve descrição do Livro"></textarea>
+                            <textarea class="form-control" name="description" id="description" rows="8" placeholder="Breve descrição do Livro"></textarea>
                         </div>
                     </div>
 

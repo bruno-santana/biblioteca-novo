@@ -52,35 +52,43 @@
                 </div>
             </div>
             
-            <div class="table-responsive">
-                <table class="table table-striped table-fixed mtop16">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="col-3">Código</th>
-                            <th scope="col" class="col-7">Nome</th>                          
-                            <th scope="col" class="col-2">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($libros as $libro)
-                            <tr>
-                                <td scope="row" class="col-3">{{ $libro->code }}</td>
-                                <td class="col-7">{{ $libro->name }}</td>
-                                <td class="col-2">
-                                    <div class="opts">   
-                                        <a href="{{ route('libros.edit', $libro->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
-                                            <i class="fa fa-edit" aria-hidden="true"></i>
-                                        </a>                                        
-                                        
-                                        <a href="{{ url('/admin/libro/'.$libro->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
-                                            <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                                        </a>                                        
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="row mtop16">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-fixed mtop16">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-3">Código</th>
+                                    <th scope="col" class="col-7">Nome</th>                          
+                                    <th scope="col" class="col-2">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($libros as $libro)
+                                    <tr>
+                                        <td scope="row" class="col-3">{{ $libro->code }}</td>
+                                        <td class="col-7">{{ $libro->name }}</td>
+                                        <td class="col-2">
+                                            <div class="opts">   
+                                                <a href="{{ route('libros.edit', $libro->id) }}" data-toggle="tooltip" data-placement="top" title="Editar">
+                                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                                </a>                                        
+                                                
+                                                <a href="{{ url('/admin/libro/'.$libro->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
+                                                    <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                                                </a>                                        
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+
+                        <div class="d-flex justify-content-center">
+                            {{ $libros->links() }}
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

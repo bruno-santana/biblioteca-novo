@@ -18,6 +18,7 @@ class Studant extends Model
         'state',
         'city',
         'cell',
+        'email'
     ];
     public function setDateOfBirthAttribute($value)
     {

@@ -32,23 +32,13 @@
     <div class="wrapper">
         <div class="col1">@include('admin._partials.sidebar')</div>
         <div class="col2">
-            <nav class="navbar navbar-expand-lg shadow">
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="{{route('dashboard.index')}}" class="nav-link">
-                                <i class="fa fa-home" aria-hidden="true"> Início</i></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
 
             <div class="page">
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb shadow">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="{{route('dashboard.index')}}"><i class="fa fa-home" aria-hidden="true"></i>Início</a>
+                                <a href="{{route('dashboard.index')}}"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Início</a>
                             </li>
                             @section('breadcrumb')      
                             @show

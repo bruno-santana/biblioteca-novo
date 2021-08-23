@@ -24,20 +24,18 @@
     <div class="page_user">
         <div class="row">
             <div class="col-md-6 mtop16">
-                <div class="panel shadow">
+                <div class="panel shadow"  style="height: 230px">
                     <div class="inside">
                     @include('admin.includes.alerts')
                     <div class="mini_profile">
                         @if(is_null($user->avatar))
-                        <img src="{{ url('/static/images/user-default.png') }}" class="img-fluid rounded-circle">
+                            <img src="{{ url('/static/images/user-default.png') }}" class="img-fluid rounded-circle" style="max-width: 100px;">
                         @else
-                        <img src="{{ url("storage/{$user->avatar}") }}" alt="{{ $user->name }}" style="max-width: 72px;">
+                            <img src="{{ url("storage/$user->avatar") }}" alt="{{ $user->name }}" style="max-width: 80px;">
                         @endif
-                        <div class="info">
+                        <div class="info" style="padding-top: 18px">
                             <span class="title"><i class="far fa-address-card" aria-hidden="true"></i> Nome:</span>
-                            <span class="text">{{ $user->name}}</span>
-                            <span class="title"><i class="fas fa-passport" aria-hidden="true"></i> Matrícula:</span>
-                            <span class="text">{{ $user->registration}}</span>
+                            <span class="text">{{ strtoupper($user->name) }}</span>
                         </div>
                     </div>
                            
@@ -45,19 +43,17 @@
                 </div>
             </div>
                 <div class="col-md-6 mtop16">
-                    <div class="panel shadow">
+                    <div class="panel shadow" style="height: 230px">
                         <div class="inside">
                         @include('admin.includes.alerts')
                         <div class="mini_profile">
-                            <div class="info">
-                                <span class="title"><i class="far fa-calendar-alt" aria-hidden="true"></i> Data de nascimento:</span>
-                                <span class="text">{{ $user->date_of_birth}}</span>
+                            <div class="info">                                
+                                <span class="title"><i class="fas fa-passport" aria-hidden="true"></i> Matrícula:</span>
+                                <span class="text">{{ $user->registration }}</span>
                                 <span class="title"><i class="far fa-envelope" aria-hidden="true"></i> Email:</span>
-                                <span class="text">{{ $user->email}}</span>
-                                <span class="title"><i class="fas fa-phone-square" aria-hidden="true"></i> Telefone:</span>
-                                <span class="text">{{ $user->phone}}</span>
+                                <span class="text">{{ strtoupper($user->email) }}</span>
                                 <span class="title"><i class="far fa-calendar-alt" aria-hidden="true"></i> Registro:</span>
-                                <span class="text">{{ $user->created_at->format('d/m/Y - H:i:s')}}</span>
+                                <span class="text">{{ $user->created_at->format('d/m/Y - H:i:s') }}</span>
                             </div>
                         </div>
                                
