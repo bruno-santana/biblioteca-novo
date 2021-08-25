@@ -39,6 +39,7 @@ class LibroController extends Controller
     {
         $data = $request->all();
 
+        $categoria = $data['category_id'];
         if ($data['category_id'] < 10){
             $categoria = "0".$data['category_id'];
         }
@@ -75,6 +76,14 @@ class LibroController extends Controller
         }
 
         $data = $request->all();
+        
+        $categoria = $data['category_id'];
+
+        if ($data['category_id'] < 10){
+            $categoria = "0".$data['category_id'];
+        }
+
+        $data['code'] = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position']."-".$id;
         
         $libro->update($data);
 
