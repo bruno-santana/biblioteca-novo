@@ -76,7 +76,7 @@ class StudantController extends Controller
         $studants = Studant::where(function($query) use ($request) {
             if ($request->filter) {
                 $query->orWhere('name', 'LIKE', "%{$request->filter}%");
-                $query->orWhere('document', $request->filter);
+                $query->orWhere('registration', $request->filter);
             }
         })
         ->latest()
