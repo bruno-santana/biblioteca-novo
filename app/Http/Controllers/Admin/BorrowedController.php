@@ -37,9 +37,9 @@ class BorrowedController extends Controller
 
     public function create()
     {
-        $libros = Libro::pluck('name', 'id');
-        $users = User::pluck('name', 'id');
-        $studants = Studant::pluck('name', 'id');
+        $libros = Libro::orderBy('name')->pluck('name', 'id');
+        $users = User::orderBy('name')->pluck('name', 'id');
+        $studants = Studant::orderBy('name')->pluck('name', 'id');
         $data = [ 'libros' => $libros,
                 'users' => $users,
                 'studants' => $studants,
