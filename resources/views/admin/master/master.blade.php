@@ -27,12 +27,11 @@
         });
     </script>
 </head>
-<body>
+<body style="background-image:url({{ url('/static/images/background.png')}});background-repeat:repeat;background-size:400px 400px;background-attachment:local">
 
-    <div class="wrapper">
+    <div class="wrapper" style="background:rgba(255,255,255,.85)">
         <div class="col1">@include('admin._partials.sidebar')</div>
         <div class="col2">
-
             <div class="page">
                 <div class="container-fluid">
                     <nav aria-label="breadcrumb shadow">

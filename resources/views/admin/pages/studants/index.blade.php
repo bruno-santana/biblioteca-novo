@@ -13,12 +13,10 @@
     <div class="panel shadow">
         <div class="header">
             <h3 class="title"><i class="fas fa-address-book" aria-hidden="true"></i> Irmãos</h3>
-        </div>
-      
-        </div>
+        </div>      
+    </div>
 
-        <div class="inside">
-    
+        <div class="inside">    
             <div class="mtop16">
                 @include('admin.includes.alerts')
             </div>

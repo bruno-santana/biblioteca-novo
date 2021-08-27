@@ -67,20 +67,24 @@ class BorrowedController extends Controller
     }
 
     public function search(Request $request)
-    {
-        $filters = $request->only('filter');
+    {        
+        try {
+            $filters = $request->only('filter');
+            $borroweds = Borrowed::where(function($query) use ($request) {
+                if ($request->filter) {
+                    $query->orWhere('name_std', 'LIKE', "%{$request->filter}%");
+                }
+            })
+            ->latest()
+            ->paginate();
+            return view('admin.pages.borroweds.index', compact('borroweds', 'filters'));
 
-        $borroweds = Borrowed::where(function($query) use ($request) {
-            if ($request->filter) {
-                $query->orWhere('name_std', 'LIKE', "%{$request->filter}%");
-            }
-        })
-        ->latest()
-        ->paginate();
+        } catch (\Illuminate\Database\QueryException $ex) {
+            return back()->with('message', 'Empréstimo não localizado para o irmão informado. Verifique o nome informado e tente novamente')->with('typealert', 'danger');
+        }       
 
-        return view('admin.pages.borroweds.index', compact('borroweds', 'filters'));
     }
-
+    
     public function searchLibros(Request $request)
     {
 
