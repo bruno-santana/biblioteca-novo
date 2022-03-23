@@ -52,8 +52,7 @@ Route::prefix('admin')
     Route::get('/categories/{module}', 'CategoryController@getHome')->name('categories.home');
     Route::get('/category/{id}/delete', 'CategoryController@getDelete')->name('categories_delete');
     Route::resource('categories', 'CategoryController');
-    
-            
+
 });
 
 Auth::routes();
