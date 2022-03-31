@@ -40,6 +40,7 @@ Route::prefix('admin')
     Route::get('borroweds/create', 'BorrowedController@create')->name('borroweds.create');
     Route::post('borroweds/store', 'BorrowedController@store')->name('borroweds.store');
     Route::get('/borrowed/{id}/destroy', 'BorrowedController@destroy')->name('borroweds.destroy');
+    Route::get('/borrowed/{id}/giveBack', 'BorrowedController@giveBack')->name('borroweds.giveBack');
 
     // Router Libros
     Route::any('libros/search', 'LibroController@search')->name('libros.search');

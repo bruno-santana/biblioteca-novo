@@ -3,125 +3,131 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Returned;
+use App\Models\Borrowed;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Libro;
 
 class LibroController extends Controller
-{    
-    public function index()
-    {
-        $libros = Libro::latest()->paginate(50);
+{
+  public function index()
+  {
+    $borrowed = new Borrowed();
+    $libros = Libro::latest()->paginate(50);
+    foreach ($libros as $libro){
+      $cat = Category::find($libro['category_id']);
+      $libro['category'] = $cat['name'];
+      $libro['status'] = Borrowed::where('libro_id', $libro['id'])->first() ? true : false;
+    }
+    $lastId = Libro::max('id');
+    $last = Libro::find($lastId);
 
-        foreach ($libros as $libro){
-            $cat = Category::find($libro['category_id']);
-            $libro['category'] = $cat['name'];
-        }
+    return view('admin.pages.libros.index', compact('libros','last'));
+  }
 
-        $lastId = Libro::max('id');
-        $last = Libro::find($lastId);
+  public function create()
+  { 
+    $cats = Category::all();
 
+    $data = [
+      'cats' => $cats
+    ];
 
-        return view('admin.pages.libros.index', compact('libros','last'));
-    } 
-    public function create()
-    { 
-        $cats = Category::all();
+    return view('admin.pages.libros.create', $data);
+  }
 
-        $data = [
-            'cats' => $cats
-        ];
+  public function store(Request $request)
+  {
+    $data = $request->all();
 
-        return view('admin.pages.libros.create', $data);
+    $categoria = $data['category_id'];
+    if ($data['category_id'] < 10){
+      $categoria = "0".$data['category_id'];
     }
 
-    public function store(Request $request)
-    {
-        $data = $request->all();
+    $count =  (Libro::count('id')) + 1;
 
-        $categoria = $data['category_id'];
-        if ($data['category_id'] < 10){
-            $categoria = "0".$data['category_id'];
-        }
+    $code = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position']."-".$count;
 
-        $count =  (Libro::count('id')) + 1;
-
-        $code = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position']."-".$count;
-
-        $data['code'] = $code;
-        
-        Libro::create($data);
-
-        return back()->with('message', 'Livro adicionado com sucesso.')->with('typealert', 'success');
-    }
+    $data['code'] = $code;
     
-    public function show($id)
-    {
-        //
-    }
+    Libro::create($data);
+
+    return back()->with('message', 'Livro adicionado com sucesso.')->with('typealert', 'success');
+  }
     
-    public function edit($id)
-    {
-        $l = Libro::findOrFail($id);
-        $cats = Category::all();
-        $data = ['cats' => $cats, 'l' => $l ];
+  public function show($id)
+  {
+      //
+  }
+  
+  public function edit($id)
+  {
+    $l = Libro::findOrFail($id);
+    $cats = Category::all();
+    $data = ['cats' => $cats, 'l' => $l ];
 
-        return view('admin.pages.libros.edit', $data);
+    return view('admin.pages.libros.edit', $data);
+  }
+
+  public function postUpdate(Request $request, $id)
+  {
+    if (!$libro = Libro::find($id)) {
+      return redirect()->back();
     }
 
-    public function postUpdate(Request $request, $id)
-    {
-        if (!$libro = Libro::find($id)) {
-            return redirect()->back();
-        }
-
-        $data = $request->all();
-        
-        $categoria = $data['category_id'];
-
-        if ($data['category_id'] < 10){
-            $categoria = "0".$data['category_id'];
-        }
-
-        $data['code'] = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position']."-".$id;
-        
-        $libro->update($data);
-
-        return redirect()->route('libros.index');
-    }
+    $data = $request->all();
     
-    public function update($id)
-    {
-        
+    $categoria = $data['category_id'];
+
+    if ($data['category_id'] < 10){
+      $categoria = "0".$data['category_id'];
     }
+
+    $data['code'] = $categoria."-".$data['nationality']."-".$data['column']."-".$data['line']."-".$data['position']."-".$id;
+      
+    $libro->update($data);
+
+    return redirect()->route('libros.index');
+  }
     
-    public function destroy($id)
-    {
-        if (!$libro = Libro::find($id)) {
-            return redirect()->back();
-        }
-
-        if($libro->delete()):
-            return back()->with('message', 'Excluído com sucesso.')->with('typealert', 'danger');
-        endif;
+  public function update($id)
+  {
+      
+  }
+    
+  public function destroy($id)
+  {
+    if (!$libro = Libro::find($id)) {
+      return redirect()->back();
     }
 
-    public function search(Request $request)
-    {
-        $filters = $request->only('filter');
+    if($libro->delete()):
+      return back()->with('message', 'Excluído com sucesso.')->with('typealert', 'danger');
+    endif;
+  }
 
-        $libros = Libro::where(function($query) use ($request) {
-            if ($request->filter) {
-                $query->orWhere('name', 'LIKE', "%{$request->filter}%");
-                $query->orWhere('code', $request->filter);
-            }
-        })
-        ->latest()
-        ->paginate();
+  public function search(Request $request)
+  {
+    $filters = $request->only('filter');
 
-        $lastId = Libro::max('id');
-        $last = Libro::find($lastId);
+    $libros = Libro::where(function($query) use ($request) {
+      if ($request->filter) {
+        $query->orWhere('name', 'LIKE', "%{$request->filter}%");
+        $query->orWhere('code', $request->filter);
+      }
+    })
+    ->latest()
+    ->paginate();
 
-        return view('admin.pages.libros.index', compact('libros', 'filters', 'last'));
+    foreach ($libros as $libro){
+      $libro['status'] = Borrowed::where('libro_id', $libro['id'])->first() ? true : false;
     }
+
+    $lastId = Libro::max('id');
+    $last = Libro::find($lastId);
+
+    return view('admin.pages.libros.index', compact('libros', 'filters', 'last'));
+  }
 }

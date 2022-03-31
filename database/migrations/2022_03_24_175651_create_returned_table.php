@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBorrowedStatus extends Migration
+class CreateReturnedTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateBorrowedStatus extends Migration
      */
     public function up()
     {
-        Schema::create('borrowed_status', function (Blueprint $table) {
+        Schema::create('returneds', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('libro_id');
-            $table->enum('status',['DISPONIVEL','EMPRESTADO','ATRASADO']);
+            $table->unsignedBigInteger('borrowed_id');
+            $table->date('return_confirmation');
             $table->timestamps();
 
-            $table->foreign('libro_id')->references('id')->on('libros');
+            $table->foreign('borrowed_id')->references('id')->on('borroweds');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateBorrowedStatus extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('borrowed_status');
+        Schema::dropIfExists('returned');
     }
 }

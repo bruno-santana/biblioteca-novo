@@ -87,11 +87,12 @@
                     </td>
                   @endif
                   <td>
-                    <div class="opts">
-                      <a href="{{ url('/admin/borrowed/'.$borrowed->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
-                        <i class="fa fa-trash-alt" aria-hidden="true"></i>
-                      </a>
-                    </div>
+                    <a style="margin: 6px" href="{{ url('/admin/borrowed/'.$borrowed->id.'/giveBack') }}" data-toggle="tooltip" data-placement="top" title="Devolver">
+                      <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                    </a>
+                    <a style="margin: 6px" href="{{ url('/admin/borrowed/'.$borrowed->id.'/destroy') }}" data-toggle="tooltip" data-placement="top" title="Excluir">
+                      <i class="fa fa-trash-alt" aria-hidden="true"></i>
+                    </a>
                   </td>
                 </tr>
               @endforeach
